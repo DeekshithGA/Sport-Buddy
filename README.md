@@ -35,5 +35,7 @@ This project helps users discover and participate in sports activities around th
 - Build a mobile app using React Native or Flutter.
 - Add chat functionality and social features.
 - Enhance admin capabilities with analytics dashboards.
+
+
 Author
 [Deekshith G A] - Creator and maintainer
