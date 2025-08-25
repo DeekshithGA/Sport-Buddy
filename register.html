@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | Sports Buddy</title>
+  <link rel="stylesheet" href="styles/form.css" />
+</head>
+<body>
+  <h2>Create an Account</h2>
+  <form id="registerForm" novalidate>
+    <label for="registerEmail">Email:</label>
+    <input type="email" id="registerEmail" required />
+    
+    <label for="registerPassword">Password:</label>
+    <input type="password" id="registerPassword" minlength="6" required />
+    
+    <label for="abilityLevel">Your Ability Level:</label>
+    <select id="abilityLevel" required>
+      <option value="">Select</option>
+      <option value="Beginner">Beginner</option>
+      <option value="Intermediate">Intermediate</option>
+      <option value="Advanced">Advanced</option>
+    </select>
+    
+    <label for="userRole">I am a:</label>
+    <select id="userRole" required>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button type="submit">Register</button>
+  </form>
+  <p id="registerMsg"></p>
+
+  <script src="scripts/firebase-config.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/logger.js"></script>
+  <script src="scripts/utils.js"></script>
+  <form id="registerForm" enctype="multipart/form-data">
+  <input type="email" id="registerEmail" required placeholder="Email" />
+  <input type="password" id="registerPassword" minlength="6" required placeholder="Password" />
+  <input type="file" id="profilePicInput" accept="image/*" />
+  <select id="abilityLevel" required>
+    <option value="">Select Ability Level</option>
+    <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+  </select>
+  <select id="userRole" required>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <button type="submit">Register</button>
+</form>
+<p id="verificationMsg"></p>
+
+<button id="googleSignInBtn">Sign In with Google</button>
+<script src="...google-auth-library.js"></script>
+<div id="passwordStrength">Password Strength: <span></span></div>
+<label><input type="checkbox" id="acceptTerms"> I accept <a href="#">Terms & Privacy</a></label>
+
+</body>
+</html>
