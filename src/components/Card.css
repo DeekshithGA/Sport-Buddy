@@ -1,0 +1,221 @@
+/* src/components/Card.css */
+
+/* --- General Card Styling --- */
+.card {
+    background-color: var(--color-dark-gray); /* Dark background from theme */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* General shadow */
+    padding: 20px;
+    color: var(--color-text-on-dark); /* Light text color from theme */
+    display: flex;
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: space-between; /* Pushes action buttons to the bottom */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1); /* Subtle border matching theme */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+    border-color: rgba(255, 215, 0, 0.3); /* Subtle golden glow on hover border */
+}
+
+.card h4 {
+    color: var(--color-gold-primary); /* Primary gold color for titles */
+    margin-bottom: 10px;
+    font-size: 1.6em; /* Slightly larger font for event titles */
+}
+
+.card p {
+    font-size: 0.95em;
+    color: var(--color-text-on-dark);
+    margin-bottom: 8px; /* Spacing between paragraphs */
+    line-height: 1.4; /* Improved readability for paragraphs */
+}
+
+/* --- Specific Adjustments for Event Cards --- */
+.event-card {
+    min-height: 250px; /* Ensures enough vertical space for content and buttons */
+    position: relative; /* For the completed tag positioning */
+}
+
+.event-card .completed-tag {
+    color: var(--color-gold-primary); /* Use your gold color for the tag */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px; /* Spacing above the tag */
+    font-size: 1.1em;
+    padding: 5px 10px;
+    background-color: rgba(255, 215, 0, 0.05); /* Very subtle background for the tag */
+    border-radius: 3px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.event-card .joined-tag { /* New style for JOINED tag */
+    color: #28a745; /* Green color for joined status */
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    background-color: rgba(40, 167, 69, 0.05); /* Subtle green background */
+    border-radius: 3px;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+/* --- Event Actions (Buttons Container) --- */
+.event-actions {
+    margin-top: 20px; /* Space above buttons from card content */
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if space is tight */
+    gap: 10px; /* Space between buttons */
+    justify-content: flex-end; /* Align buttons to the right corner */
+    align-items: center; /* Vertically center buttons */
+}
+
+/* --- General Button Styling --- */
+.btn {
+    padding: 10px 15px; /* Comfortable padding for buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em; /* Consistent font size */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    min-width: 80px; /* Ensures buttons have a consistent minimum width */
+    /* Default color for buttons, overridden by specific classes below */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for buttons */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Specific button colors */
+.btn-primary {
+    background-color: var(--color-gold-primary); /* Gold for primary actions like Edit, Connect */
+    color: var(--color-dark-gray); /* Dark text on gold for contrast */
+}
+
+.btn-primary:hover {
+    background-color: #ffd700; /* Lighter gold on hover */
+}
+
+.btn-success {
+    background-color: #28a745; /* Standard Green for success like Complete */
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Standard Red for danger/delete/Leave */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* --- New styles for Join/Leave button --- */
+.btn-info { /* Used for 'Join' button */
+    background-color: #17a2b8; /* A standard info blue/teal */
+    color: white; /* White text for contrast on blue */
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+.btn-secondary { /* Used for 'Leave' button (when already joined) or 'Connected' (disabled) */
+    background-color: #6c757d; /* A standard grey for secondary actions */
+    color: white; /* White text for contrast on grey */
+}
+
+.btn-secondary:hover:not(:disabled) { /* Hover for non-disabled secondary buttons */
+    background-color: #5a6268;
+}
+
+.btn-secondary:disabled { /* Style for disabled secondary buttons (like 'Connected') */
+    cursor: not-allowed;
+    opacity: 0.7; /* Slightly dim disabled buttons */
+}
+
+
+/* Styles for completed event cards */
+.event-completed {
+    opacity: 0.7; /* Dim completed events slightly */
+    border: 2px solid var(--color-gold-primary); /* Clear border for completed events */
+    background-color: rgba(255, 215, 0, 0.08); /* A subtle golden tint background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow for completed events */
+}
+
+.event-completed:hover {
+    transform: none; /* No lift effect for completed cards on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Maintain base shadow */
+    cursor: default; /* Change cursor to default */
+}
+
+/* Buddy Card specific styles (if different from general card) */
+.buddy-card {
+    min-height: 220px; /* Ensures consistent height for buddy cards */
+}
+
+/* --- Buddy Actions (Buttons Container) - Specific for Buddy Card --- */
+.buddy-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Center the buttons for Buddy Cards */
+    align-items: center;
+}
+
+.buddy-actions .btn {
+    flex: 1; /* Allow buttons to grow */
+    max-width: 150px; /* Max width for buddy buttons */
+}
+
+
+/* --- Grid Container for Cards --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 25px; /* Space between cards */
+    padding: 20px 0;
+}
+
+/* --- Styles for Login/Register Button (btn-auth) --- */
+.btn-auth {
+    background-color: var(--color-gold-primary) !important;
+    color: var(--color-dark-gray) !important;
+    border: 1px solid var(--color-gold-primary);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-auth:hover {
+    background-color: #ffd700 !important;
+    color: var(--color-dark-gray) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
