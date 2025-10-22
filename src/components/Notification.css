@@ -1,0 +1,43 @@
+/* src/components/Notification.css */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification.success {
+    background-color: #28a745; /* Green for success */
+    color: white;
+}
+
+.notification.error {
+    background-color: #dc3545; /* Red for error */
+    color: white;
+}
+
+.notification.info {
+    background-color: #007bff; /* Blue for info */
+    color: white;
+}
+
+.notification p {
+    margin: 0;
+    font-weight: 500;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
