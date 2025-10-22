@@ -1,0 +1,127 @@
+/* src/index.css */
+
+/* Variables for colors */
+:root {
+    --color-black: #000000;
+    --color-dark-gray: #1A1A1A;
+    --color-light-gray: #E0E0E0;
+    --color-white: #FFFFFF;
+    --color-gold-primary: #FFD700; /* Main Gold */
+    --color-gold-dark: #DAA520;   /* Darker Gold for hover/accents */
+    --color-text-on-dark: #C0C0C0; /* For secondary text on dark backgrounds */
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-light-gray);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container for consistent content width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Headings (using Montserrat for distinctiveness) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-gold-primary);
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* Buttons (reusable classes) */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-gold-primary);
+    color: var(--color-black);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gold-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-dark-gray);
+    color: var(--color-gold-primary);
+    border: 1px solid var(--color-gold-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #333; /* Slightly lighter dark-gray on hover */
+    transform: translateY(-2px);
+}
+
+/* Forms - general input styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    background-color: #0D0D0D; /* Even darker for inputs */
+    color: var(--color-light-gray);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-gold-primary);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Utility classes for layout */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
