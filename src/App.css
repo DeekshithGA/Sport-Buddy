@@ -1,0 +1,261 @@
+/* src/App.css */
+
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-background-dark); /* Dark background */
+    color: var(--color-text-on-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Color Variables */
+:root {
+    --color-gold-primary: #FFD700; /* Bright gold for accents */
+    --color-gold-secondary: #DAA520; /* Darker gold */
+    --color-dark-gray: #1a1a1a; /* Main background for cards/forms */
+    --color-dark-gray-light: #2c2c2c; /* Slightly lighter for inputs */
+    --color-background-dark: #0f0f0f; /* Overall page background */
+    --color-text-on-dark: #f0f0f0;  /* Light text on dark backgrounds */
+    --color-white: #ffffff;
+    --color-light-gray: #ccc;
+    --color-blue-accent: #0099ff; /* For buttons/links */
+    --color-green-accent: #28a745;  /* Success/add actions */
+    --color-red-accent: #dc3545;  /* Danger/delete actions */
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main Header */
+.main-header {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    padding: 10px 0; /* Reduced top and bottom padding for a compact header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure header is above other content (increased z-index) */
+    width: 100%; /* Occupy full width */
+    position: fixed; /* Make the header stick to the top */
+    top: 0; /* Position it at the very top */
+    left: 0;  /* Align it to the left edge */
+    /* Add a min-height for consistent sizing, especially on mobile */
+    min-height: 60px; /* Adjust this if your logo/nav takes more vertical space */
+    display: flex; /* Ensure header content is flex for vertical alignment */
+    align-items: center; /* Vertically center content in header */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center items */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%; /* Ensure container takes full width within header */
+}
+
+.logo a {
+    color: var(--color-gold-primary);
+    text-decoration: none;
+    font-size: 1.6em; /* Further reduced font size for logo if still too big */
+    font-weight: bold;
+}
+
+.main-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Space between nav items */
+    align-items: center; /* Ensure vertical alignment of nav items */
+}
+
+.main-nav .nav-list li a,
+.main-nav .nav-list li button {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 10px; /* Reduced padding for nav items */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9em; /* Slightly smaller font for nav items */
+}
+
+.main-nav .nav-list li a:hover,
+.main-nav .nav-list li button:hover {
+    background-color: var(--color-gold-primary);
+    color: var(--color-dark-gray);
+}
+
+.main-nav .nav-list li button {
+    background-color: var(--color-gold-primary); /* Style logout button directly */
+    color: var(--color-dark-gray);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em; /* Match link font size */
+    font-weight: 500;
+}
+
+/* Hamburger Menu (for mobile) */
+.hamburger-menu {
+    display: none; /* Hidden by default on desktop */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    /* We will adjust padding-top in media queries based on header and nav state */
+    padding-top: 120px; /* Default padding for desktop/larger screens (assuming header is ~60px + some space) */
+    position: relative; /* Needed for z-index context if using nav overlay */
+    z-index: 1; /* Ensure main content is below active nav */
+}
+
+
+/* Main Footer */
+.main-footer {
+    background-color: var(--color-dark-gray);
+    color: var(--color-light-gray);
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    background-color: #333;
+    color: var(--color-white);
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header {
+        /* On mobile, if logo/hamburger are larger, header might need more height */
+        min-height: 70px; /* Adjusted min-height for mobile header */
+        padding: 10px 0; /* Keep padding consistent */
+    }
+
+    .main-header .container {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: space-between; /* Keep logo and hamburger on ends */
+        align-items: center;
+    }
+
+    .logo {
+        /* No full width for logo, let it sit with hamburger */
+        margin-bottom: 0; /* Remove margin-bottom from logo */
+        text-align: left;
+        flex-grow: 1; /* Allow logo to take available space */
+    }
+
+    .main-nav {
+        display: none; /* Hide nav by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute; /* Changed from fixed to absolute for mobile nav toggle */
+        /* Calculate top dynamically or set a fixed value based on header height */
+        top: 70px; /* Adjusted based on the new main-header min-height */
+        left: 0;
+        background-color: var(--color-dark-gray);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        z-index: 999; /* Ensure nav is below header but above content */
+        max-height: calc(100vh - 70px); /* Limit height to prevent overflow below screen */
+        overflow-y: auto; /* Enable scrolling if nav content is too long */
+    }
+
+    .main-nav.active {
+        display: flex; /* Show nav when active */
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        padding: 10px 20px;
+        align-items: center;
+        width: 100%; /* Ensure nav list takes full width of nav */
+    }
+
+    .main-nav .nav-list li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .hamburger-menu {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    main {
+        /* Adjusted padding-top for mobile. Should be equal to or slightly more than .main-header height */
+        padding-top: 80px; /* This needs to accommodate the header even when nav is closed */
+    }
+
+    /* When the navigation is active, push the main content further down */
+    /* This requires a JavaScript class on the body/app-container when nav is active */
+    /* Example (if you add a class 'nav-open' to body or app-container): */
+    .app-container.nav-open main {
+        padding-top: calc(70px + 200px); /* Example: Header height + estimated nav height */
+        /* You'll need to measure the actual height of your open nav and header combined */
+    }
+
+    /* Alternatively, for a simpler approach if the nav completely overlays the content,
+       you might not need to adjust main padding when nav is active.
+       But if it pushes content, this calc() is important. */
+
+    .logo a {
+        font-size: 1.4em; /* Slightly smaller font size for mobile devices */
+    }
+}
+
+/* End of App.css */
